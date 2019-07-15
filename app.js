@@ -1,8 +1,9 @@
 $(function(){
     buttons(babyArray, "searchButton", "#buttons");
+    console.log("Page Loaded");
 })
 
-var babyArray = ["Laughing", "Dancing", "Eating"];
+var babyArray = ["Dog", "Cat", "Bird"];
 
 function buttons(babyArray, classToAdd, buttonArea){
     $(buttonArea).empty();
@@ -14,3 +15,13 @@ function buttons(babyArray, classToAdd, buttonArea){
         $(buttonArea).append(a);
     }
 }
+
+$(document).on("click", ".searchButton", function(){
+    var type = $(this).data("type");
+    console.log(type);
+    var queryURL = "http://api.giphy.com/v1/gifs/search?q=" +type+ "&api_key=g0S03lopEPcoMbRvxLSj9u25sydX38yF&limit=10";
+    $.ajax({url:queryURL, method: "GET"})
+        .done(function(response){
+            
+        })
+})
