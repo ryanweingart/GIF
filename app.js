@@ -1,8 +1,3 @@
-$(function(){
-    buttons(tvMovieStars, "searchButton", "#buttonsArea");
-    console.log("Page Loaded");
-})
-
 var tvMovieStars = ["Joey Tribbiani", "Arnold Schwarzenegger", "Samuel L. Jackson"];
 
 function buttons(tvMovieStars, classToAdd, areaToAddTo){
@@ -59,3 +54,4 @@ $("#addSearch").on("click", function(){
     return false;
 })
 
+    buttons(tvMovieStars, "searchButton", "#buttonsArea");
