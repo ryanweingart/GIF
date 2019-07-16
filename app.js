@@ -1,18 +1,16 @@
-$(function(){
-    buttons(babyArray, "searchButton", "#buttons");
-    console.log("Page Loaded");
+$(document).ready(function(){
+    
 })
+var tvMovieStars = ["Joey Tribbiani", "Arnold Schwarzenegger", "Samuel L. Jackson"];
 
-var babyArray = ["Dog", "Cat", "Bird"];
-
-function buttons(babyArray, classToAdd, buttonArea){
-    $(buttonArea).empty();
-    for(var i = 0; i < babyArray.length; i++){
-        var a = $("<button>");
-        a.addClass(classToAdd);
-        a.attr("data-type", babyArray[i]);
-        a.text(babyArray[i]);
-        $(buttonArea).append(a);
+function buttons(){
+    $("#buttons").empty();
+    for(var i = 0; i < tvMovieStars.length; i++){
+        var GIFButton = $("<button>");
+        GIFButton.addClass(classToAdd);
+        GIFButton.attr("data-type", tvMovieStars[i]);
+        GIFButton.text(tvMovieStars[i]);
+        $("#buttons").append(GIFButton);
     }
 }
 
@@ -52,9 +50,10 @@ $(document).on("click", ".searchImage", function(){
     }
 })
 
-$("#addSearch").on("click", function(){
+$("#addGIF").on("click", function(e){
+    e.preventDefault();
     var newSearch = $("input").eq(0).val();
-    babyArray.push(newSearch);
-    buttons(babyArray, "searchButton", "#buttons");
+    tvMovieStars.push(newSearch);
+    buttons(tvMovieStars, "searchButton", "#buttons");
     return false;
 })
