@@ -46,8 +46,12 @@ $(document).on("click", ".searchImage", function(){
     if(state === "still"){
         $(this).attr("src", $(this).data("animated"));
         $(this).attr("data-state", "animated");
+    } else {
+        $(this).attr("src", $(this).data("still"));
+        $(this).attr("data-state", "still");
     }
 })
+
 $("#addSearch").on("click", function(){
     var newSearch = $("input").eq(0).val();
     babyArray.push(newSearch);
