@@ -1,24 +1,23 @@
 $(function(){
-    buttons(tvMovieStars, "searchButton", "#buttons");
+    buttons(tvMovieStars, "searchButton", "#buttonsArea");
     console.log("Page Loaded");
 })
 
 var tvMovieStars = ["Joey Tribbiani", "Arnold Schwarzenegger", "Samuel L. Jackson"];
 
-function buttons(tvMovieStars, classToAdd, buttonArea){
-    $("#buttons").empty();
+function buttons(tvMovieStars, classToAdd, areaToAddTo){
+    $(areaToAddTo).empty();
     for(var i = 0; i < tvMovieStars.length; i++){
         var gifButton = $("<button>");
         gifButton.addClass(classToAdd);
         gifButton.attr("data-stars", tvMovieStars[i]);
         gifButton.text(tvMovieStars[i]);
-        $("#buttons").append(gifButton);
+        $(areaToAddTo).append(gifButton);
     }
 }
 
 $(document).on("click", ".searchButton", function(){
     var stars = $(this).data("stars");
-    console.log(stars);
     var queryURL = "http://api.giphy.com/v1/gifs/search?q=" +stars+ "&api_key=g0S03lopEPcoMbRvxLSj9u25sydX38yF&limit=10";
     $.ajax({
         url:queryURL, 
@@ -44,7 +43,7 @@ $(document).on("click", ".searchButton", function(){
 
 $(document).on("click", ".searchImage", function(){
     var state = $(this).attr("data-state");
-    if(state === "still"){
+    if(state == "still"){
         $(this).attr("src", $(this).data("animated"));
         $(this).attr("data-state", "animated");
     } else {
@@ -56,6 +55,7 @@ $(document).on("click", ".searchImage", function(){
 $("#addSearch").on("click", function(){
     var newSearch = $("input").eq(0).val();
     tvMovieStars.push(newSearch);
-    buttons(tvMovieStars, "searchButton", "#buttons");
+    buttons(tvMovieStars, "searchButton", "#buttonsArea");
     return false;
 })
+
