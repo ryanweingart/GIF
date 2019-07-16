@@ -1,16 +1,18 @@
-$(document).ready(function(){
-    
+$(function(){
+    buttons(babyArray, "searchButton", "#buttons");
+    console.log("Page Loaded");
 })
-var tvMovieStars = ["Joey Tribbiani", "Arnold Schwarzenegger", "Samuel L. Jackson"];
 
-function buttons(){
-    $("#buttons").empty();
-    for(var i = 0; i < tvMovieStars.length; i++){
-        var GIFButton = $("<button>");
-        GIFButton.addClass(classToAdd);
-        GIFButton.attr("data-type", tvMovieStars[i]);
-        GIFButton.text(tvMovieStars[i]);
-        $("#buttons").append(GIFButton);
+var babyArray = ["Joey Tribbiani", "Arnold Schwarzenegger", "Samuel L. Jackson"];
+
+function buttons(babyArray, classToAdd, buttonArea){
+    $(buttonArea).empty();
+    for(var i = 0; i < babyArray.length; i++){
+        var a = $("<button>");
+        a.addClass(classToAdd);
+        a.attr("data-type", babyArray[i]);
+        a.text(babyArray[i]);
+        $(buttonArea).append(a);
     }
 }
 
@@ -50,10 +52,9 @@ $(document).on("click", ".searchImage", function(){
     }
 })
 
-$("#addGIF").on("click", function(e){
-    e.preventDefault();
+$("#addSearch").on("click", function(){
     var newSearch = $("input").eq(0).val();
-    tvMovieStars.push(newSearch);
-    buttons(tvMovieStars, "searchButton", "#buttons");
+    babyArray.push(newSearch);
+    buttons(babyArray, "searchButton", "#buttons");
     return false;
 })
