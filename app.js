@@ -4,6 +4,7 @@ function buttons(tvMovieStars, classToAdd, areaToAddTo){
     $(areaToAddTo).empty();
     for(var i = 0; i < tvMovieStars.length; i++){
         var gifButton = $("<button>");
+        gifButton.attr("class", "btn btn-primary");
         gifButton.addClass(classToAdd);
         gifButton.attr("data-stars", tvMovieStars[i]);
         gifButton.text(tvMovieStars[i]);
