@@ -5,7 +5,7 @@ function buttons(tvMovieStars, classToAdd, areaToAddTo){
     for(var i = 0; i < tvMovieStars.length; i++){
         var gifButton = $("<button>");
         gifButton.attr("type", "button");
-        gifButton.attr("class", "btn btn-primary");
+        gifButton.attr("class", "btn");
         gifButton.addClass(classToAdd);
         gifButton.attr("data-stars", tvMovieStars[i]);
         gifButton.text(tvMovieStars[i]);
@@ -34,7 +34,7 @@ $(document).on("click", ".searchButton", function(){
                 image.attr("data-state", "still");
                 image.addClass("searchImage");
                 gifDiv.append(p);
-                gifDiv.append(image);
+                gifDiv.prepend(image);
                 $("#searches").prepend(gifDiv);
             }
         })
