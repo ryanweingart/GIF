@@ -4,6 +4,7 @@ function buttons(tvMovieStars, classToAdd, areaToAddTo){
     $(areaToAddTo).empty();
     for(var i = 0; i < tvMovieStars.length; i++){
         var gifButton = $("<button>");
+        gifButton.attr("type", "button");
         gifButton.attr("class", "btn btn-primary");
         gifButton.addClass(classToAdd);
         gifButton.attr("data-stars", tvMovieStars[i]);
@@ -21,20 +22,20 @@ $(document).on("click", ".searchButton", function(){
     })
         .done(function(response){
             for(var i = 0; i < response.data.length; i++){
-                var searchDiv = $("<div class='search-item'>");
+                var gifDiv = $("<div>");
                 var rating = response.data[i].rating;
                 var p = $("<p>").text("Rating: " + rating);
                 var image = $("<img>");
-                searchDiv.attr("class", "float-md-left justify-items-between");
-                image.attr("class","img-fluid rounded");
+                gifDiv.attr("class", "gifDiv float-md-left justify-content-between");
+                image.attr("class","gifImage img-fluid rounded");
                 image.attr("src", response.data[i].images.fixed_height_still.url);
                 image.attr("data-still", response.data[i].images.fixed_height_still.url);
                 image.attr("data-animated", response.data[i].images.fixed_height.url);
                 image.attr("data-state", "still");
                 image.addClass("searchImage");
-                searchDiv.append(p);
-                searchDiv.append(image);
-                $("#searches").prepend(searchDiv);
+                gifDiv.append(p);
+                gifDiv.append(image);
+                $("#searches").prepend(gifDiv);
             }
         })
 })
