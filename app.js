@@ -1,4 +1,4 @@
-var tvMovieStars = ["Joey Tribbiani", "Arnold Schwarzenegger", "Samuel L. Jackson"];
+var tvMovieStars = ["Joey Tribbiani", "Arnold Schwarzenegger", "Samuel L. Jackson", "Kelly Kapowski", "SpongeBob Squarepants", "Michael Kelso", "Ron Burgundy", "Leonardo DiCaprio", "Jack Nicholson", "Robin Williams", "Julia Roberts", "Jennifer Lawrence"];
 
 function buttons(tvMovieStars, classToAdd, areaToAddTo){
     $(areaToAddTo).empty();
