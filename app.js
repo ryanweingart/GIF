@@ -27,7 +27,7 @@ $(document).on("click", ".searchButton", function(){
                 var p = $("<p>").text("Rating: " + rating);
                 var image = $("<img>");
                 gifDiv.attr("class", "gifDiv float-md-left justify-content-between");
-                image.attr("class","gifImage img-fluid rounded");
+                image.attr("class","gifImage img-fluid");
                 image.attr("src", response.data[i].images.fixed_height_still.url);
                 image.attr("data-still", response.data[i].images.fixed_height_still.url);
                 image.attr("data-animated", response.data[i].images.fixed_height.url);
