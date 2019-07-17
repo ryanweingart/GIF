@@ -1,7 +1,7 @@
 var tvMovieStars = ["Joey Tribbiani", "Arnold Schwarzenegger", "Samuel L. Jackson", "Kelly Kapowski", "SpongeBob Squarepants", "Michael Kelso", "Ron Burgundy", "Leonardo DiCaprio", "Jack Nicholson", "Robin Williams", "Julia Roberts", "Jennifer Lawrence"];
 
-function buttons(tvMovieStars, classToAdd, areaToAddTo){
-    $(areaToAddTo).empty();
+function buttons(tvMovieStars, classToAdd){
+    $("#buttonsArea").empty();
     for(var i = 0; i < tvMovieStars.length; i++){
         var gifButton = $("<button>");
         gifButton.attr("type", "button");
@@ -9,7 +9,7 @@ function buttons(tvMovieStars, classToAdd, areaToAddTo){
         gifButton.addClass(classToAdd);
         gifButton.attr("data-stars", tvMovieStars[i]);
         gifButton.text(tvMovieStars[i]);
-        $(areaToAddTo).append(gifButton);
+        $("#buttonsArea").append(gifButton);
     }
 }
 
@@ -27,7 +27,7 @@ $(document).on("click", ".searchButton", function(){
                 var p = $("<p>").text("Rating: " + rating);
                 var image = $("<img>");
                 gifDiv.attr("class", "gifDiv float-md-left justify-content-between");
-                image.attr("class","gifImage img-fluid");
+                image.attr("class","gifImage img-fluid rounded");
                 image.attr("src", response.data[i].images.fixed_height_still.url);
                 image.attr("data-still", response.data[i].images.fixed_height_still.url);
                 image.attr("data-animated", response.data[i].images.fixed_height.url);
@@ -55,11 +55,11 @@ $("#addGifButton").on("click", function(event){
     event.preventDefault();
     var newSearch = $("#search-input").val();
     tvMovieStars.push(newSearch);
-    buttons(tvMovieStars, "searchButton", "#buttonsArea");
+    buttons(tvMovieStars, "searchButton");
     return false;
 })
 
-    buttons(tvMovieStars, "searchButton", "#buttonsArea");
+    buttons(tvMovieStars, "searchButton");
 
 
 
