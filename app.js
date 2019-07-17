@@ -47,11 +47,16 @@ $(document).on("click", ".searchImage", function(){
     }
 })
 
-$("#addSearch").on("click", function(){
-    var newSearch = $("input").eq(0).val();
+$("#addGifButton").on("click", function(event){
+    event.preventDefault();
+    var newSearch = $("#search-input").val();
     tvMovieStars.push(newSearch);
     buttons(tvMovieStars, "searchButton", "#buttonsArea");
     return false;
 })
 
     buttons(tvMovieStars, "searchButton", "#buttonsArea");
+
+
+
+    
