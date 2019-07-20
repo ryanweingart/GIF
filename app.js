@@ -20,7 +20,7 @@ $(document).on("click", ".searchButton", function(){
         url:queryURL, 
         method: "GET"
     })
-        .done(function(response){
+        .then(function(response){
             for(var i = 0; i < response.data.length; i++){
                 var gifDiv = $("<div>");
                 var rating = response.data[i].rating;
