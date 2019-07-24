@@ -15,7 +15,7 @@ function buttons(tvMovieStars, classToAdd){
 
 $(document).on("click", ".searchButton", function(){
     var stars = $(this).data("stars");
-    var queryURL = "http://api.giphy.com/v1/gifs/search?q=" +stars+ "&api_key=g0S03lopEPcoMbRvxLSj9u25sydX38yF&limit=10";
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +stars+ "&api_key=g0S03lopEPcoMbRvxLSj9u25sydX38yF&limit=10";
     $.ajax({
         url:queryURL, 
         method: "GET"
